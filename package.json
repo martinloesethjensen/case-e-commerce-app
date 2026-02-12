@@ -1,0 +1,17 @@
+{
+  "name": "practicase-case-ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "backend": "npm run dev --workspace=backend",
+    "backend:start": "npm run start --workspace=backend",
+    "frontend": "npm run start --workspace=frontend"
+  },
+  "engines": {
+    "node": ">=23.0.0"
+  }
+}
