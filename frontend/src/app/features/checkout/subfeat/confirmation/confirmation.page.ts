@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {IonContent, IonHeader, IonTitle, IonToolbar,} from '@ionic/angular/standalone';
-
-import {OrderResponse} from '@app/types';
+import { OrderResponse } from '@app/@domain/models';
 
 /**
  * Confirmation Page
@@ -40,7 +39,7 @@ export class ConfirmationPage implements OnInit {
 
     ngOnInit() {
         // Get order data passed from checkout page
-        const navigation = this.router.getCurrentNavigation();
+        const navigation = this.router.currentNavigation();
         this.order = navigation?.extras?.state?.['order'] as OrderResponse | undefined;
 
         // If no order data, redirect to products

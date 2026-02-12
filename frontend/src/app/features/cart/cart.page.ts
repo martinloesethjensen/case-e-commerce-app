@@ -20,16 +20,15 @@ import {CartService} from '@app/services/cart.service';
 @Component({
     selector: 'app-cart',
     standalone: true,
-  imports: [
-    CommonModule,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonButtons,
-    IonBackButton,
-
-  ],
+    imports: [
+      CommonModule,
+      IonHeader,
+      IonToolbar,
+      IonTitle,
+      IonContent,
+      IonButtons,
+      IonBackButton,
+    ],
     template: `
         <ion-header>
             <ion-toolbar>

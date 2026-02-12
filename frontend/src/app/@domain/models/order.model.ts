@@ -1,25 +1,5 @@
-/**
- * Shared types matching (?) the backend API.
- */
-
-export interface Category {
-    id: string;
-    name: string;
-}
-
-export interface Product {
-    id: string;
-    name: string;
-    icon: string; // SVG string
-    price: number; // in cents
-    numInStock: number;
-    categoryId: string;
-}
-
-export interface CartItem {
-    productId: string;
-    quantity: number;
-}
+import { CartItem } from "./cart.model";
+import { Product } from "./product.model";
 
 export interface CheckoutRequest {
     customer: {

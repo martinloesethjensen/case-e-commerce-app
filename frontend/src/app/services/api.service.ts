@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Category, CheckoutRequest, OrderResponse, Product} from '../types';
+import { Category, CheckoutRequest, OrderResponse, Product } from '@app/@domain/models';
 
 /**
  * API Service for communicating with the backend.

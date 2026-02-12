@@ -9,21 +9,21 @@ export const routes: Routes = [
     {
         path: 'products',
         loadComponent: () =>
-            import('./pages/products/products.page').then((m) => m.ProductsPage),
+            import('./features/products/products.page').then((m) => m.ProductsPage),
     },
     {
         path: 'cart',
         loadComponent: () =>
-            import('./pages/cart/cart.page').then((m) => m.CartPage),
+            import('./features/cart/cart.page').then((m) => m.CartPage),
     },
     {
         path: 'checkout',
         loadComponent: () =>
-            import('./pages/checkout/checkout.page').then((m) => m.CheckoutPage),
+            import('./features/checkout/checkout.page').then((m) => m.CheckoutPage),
     },
     {
         path: 'confirmation',
         loadComponent: () =>
-            import('./pages/confirmation/confirmation.page').then((m) => m.ConfirmationPage),
+            import('./features/checkout/subfeat/confirmation/confirmation.page').then((m) => m.ConfirmationPage),
     },
 ];
