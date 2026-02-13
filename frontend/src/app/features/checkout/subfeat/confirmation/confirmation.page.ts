@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {IonContent, IonHeader, IonTitle, IonToolbar,} from '@ionic/angular/standalone';
-import { OrderResponse } from '@app/@domain/models';
+import { OrderResponse } from '@common/shared-models';
 
 /**
  * Confirmation Page

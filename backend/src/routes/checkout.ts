@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import {v4 as uuidv4} from 'uuid';
 import {products} from '../data/seed.js';
-import {CheckoutRequest, OrderResponse} from '../types/index.js';
+import {CheckoutRequest, OrderResponse} from '@common/shared-models';
 
 const router = Router();
 

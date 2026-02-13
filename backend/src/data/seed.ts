@@ -1,4 +1,4 @@
-import {Category, Product} from '../types';
+import {Category, Product} from '@common/shared-models';
 
 export const categories: Category[] = [
     {id: 'cat-electronics', name: 'Electronics'},

@@ -1,5 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { CartItem } from '@app/@domain/models';
+import { CartItem } from '@common/shared-models';
 
 /**
  * Cart Service - manages shopping cart state.

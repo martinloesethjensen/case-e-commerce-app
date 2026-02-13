@@ -100,10 +100,6 @@ import {
   win
 } from "./chunk-CJCTEGKG.js";
 import {
-  NG_VALUE_ACCESSOR,
-  NgControl
-} from "./chunk-D5S7FJMI.js";
-import {
   ActivatedRoute,
   ChildrenOutletContexts,
   NavigationStart,
@@ -114,6 +110,10 @@ import {
 } from "./chunk-ST53JHMW.js";
 import "./chunk-VL5ZRHVL.js";
 import "./chunk-SOQUYFL7.js";
+import {
+  NG_VALUE_ACCESSOR,
+  NgControl
+} from "./chunk-D5S7FJMI.js";
 import {
   CommonModule,
   Location,
