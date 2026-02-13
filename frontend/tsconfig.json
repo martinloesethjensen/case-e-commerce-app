@@ -15,16 +15,13 @@
     "importHelpers": true,
     "target": "ES2024",
     "module": "ESNext",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@common/utils": ["../packages/utils/src/index.ts"],
+      "@common/shared-models": ["../packages/shared-models/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

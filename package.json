@@ -10,9 +10,14 @@
   "scripts": {
     "backend": "npm run dev --workspace=backend",
     "backend:start": "npm run start --workspace=backend",
-    "frontend": "npm run start --workspace=frontend"
+    "frontend": "npm run start --workspace=frontend",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "engines": {
     "node": ">=23.0.0"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
   }
 }

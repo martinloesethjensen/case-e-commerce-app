@@ -1,4 +1,7 @@
+import { Money } from './money.model';
+
 export interface CartItem {
-    productId: string;
-    quantity: number;
+  productId: string;
+  quantity: number;
+  price: Money;
 }

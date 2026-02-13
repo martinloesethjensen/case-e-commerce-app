@@ -8,7 +8,7 @@ This is a pre-configured **Ionic Angular** scaffold to help you get started.
 
 **The provided structure is a sample, not a prescription.**
 
-We want to see how *you* would architect an application. Feel free to:
+We want to see how _you_ would architect an application. Feel free to:
 
 - Reorganize and restructure the folder structure to match your preferred patterns
 - Rename, split, or merge files and modules as you see fit
@@ -17,7 +17,7 @@ We want to see how *you* would architect an application. Feel free to:
 - Consider: Ionic standards and best practices, but align with your own style
 
 This is your opportunity to demonstrate your structural and architectural skills. We're not just evaluating whether it
-works — we're interested in *how* you organize code for maintainability, testability, and clarity.
+works — we're interested in _how_ you organize code for maintainability, testability, and clarity.
 
 > There's no single "right" answer. Show us how you think about code organization.
 
