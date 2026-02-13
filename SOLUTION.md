@@ -1,7 +1,9 @@
 # Solution
 
-- Refactored old structure to clean architecture with {domain, data, and features}
-- Moved shared models to a shared-models folder so they can be reused in BE.
+1. Refactored old structure to clean architecture with {domain, data, and features}
+2. Broke types into entites and put them in the domain folder. (Later refactor to common package to be reused in BE)
+3. Moved shared models to a shared-models folder so they can be reused in BE.
+4. 
 
 ## Next steps or considerations:
 - Implement a more robust error handling mechanism.
