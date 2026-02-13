@@ -1,5 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { CartItem } from '@common/shared-models';
+import { CartItem, Product } from '@common/shared-models';
 import { MoneyUtils } from '@common/utils';
 
 /**
@@ -31,12 +31,29 @@ export class CartService {
     this.cartItems().reduce((sum, item) => sum + item.quantity, 0),
   );
 
-  readonly totalPriceAsMoney = computed(() =>
+  readonly totalPrice = computed(() =>
     this.cartItems().reduce(
       (sum, item) => sum + MoneyUtils.multiply(item.price, item.quantity).value,
       0,
     ),
   );
+
+  addToCart(item: CartItem) {
+    this.cartItems.update((items) => [...items, item]);
+  }
+
+  removeFromCart(item: CartItem) {
+    this.cartItems.update((items) => items.filter((i) => i.productId !== item.productId));
+  }
+
+  updateQuantity(item: CartItem, quantity: number) {
+    if (quantity <= 0) {
+      return this.removeFromCart(item);
+    }
+    this.cartItems.update((items) =>
+      items.map((i) => (i.productId === item.productId ? { ...i, quantity } : i)),
+    );
+  }
 
   // TODO: Implement cart methods
 }
