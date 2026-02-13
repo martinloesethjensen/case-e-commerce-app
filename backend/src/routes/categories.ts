@@ -1,5 +1,5 @@
-import {Router} from 'express';
-import {categories, products} from '../data/seed.js';
+import { Router } from 'express';
+import { categories, products } from '../data/seed.js';
 
 const router = Router();
 
@@ -20,7 +20,7 @@ const router = Router();
  *                 $ref: '#/components/schemas/Category'
  */
 router.get('/', (_req, res) => {
-    res.json(categories);
+  res.json(categories);
 });
 
 /**
@@ -47,11 +47,11 @@ router.get('/', (_req, res) => {
  *         description: Category not found
  */
 router.get('/:id', (req, res) => {
-    const category = categories.find((c) => c.id === req.params.id);
-    if (!category) {
-        return res.status(404).json({error: 'Category not found'});
-    }
-    res.json(category);
+  const category = categories.find((c) => c.id === req.params.id);
+  if (!category) {
+    return res.status(404).json({ error: 'Category not found' });
+  }
+  res.json(category);
 });
 
 /**
@@ -80,12 +80,12 @@ router.get('/:id', (req, res) => {
  *         description: Category not found
  */
 router.get('/:id/products', (req, res) => {
-    const category = categories.find((c) => c.id === req.params.id);
-    if (!category) {
-        return res.status(404).json({error: 'Category not found'});
-    }
-    const categoryProducts = products.filter((p) => p.categoryId === req.params.id);
-    res.json(categoryProducts);
+  const category = categories.find((c) => c.id === req.params.id);
+  if (!category) {
+    return res.status(404).json({ error: 'Category not found' });
+  }
+  const categoryProducts = products.filter((p) => p.categoryId === req.params.id);
+  res.json(categoryProducts);
 });
 
 export default router;

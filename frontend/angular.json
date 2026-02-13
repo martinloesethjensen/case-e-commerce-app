@@ -15,9 +15,7 @@
             "outputPath": "www",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.json",
             "assets": [
               {
@@ -31,9 +29,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "src/global.scss"
-            ],
+            "styles": ["src/global.scss"],
             "scripts": []
           },
           "configurations": {

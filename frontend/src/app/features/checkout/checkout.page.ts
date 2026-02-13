@@ -1,11 +1,18 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar,} from '@ionic/angular/standalone';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 
-import {ApiService} from '@app/services/api.service';
-import {CartService} from '@app/services/cart.service';
+import { ApiService } from '@app/services/api.service';
+import { CartService } from '@app/services/cart.service';
 
 /**
  * Checkout Page
@@ -21,8 +28,8 @@ import {CartService} from '@app/services/cart.service';
  * - On success, navigate to /confirmation with order data
  */
 @Component({
-    selector: 'app-checkout',
-    standalone: true,
+  selector: 'app-checkout',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -32,47 +39,46 @@ import {CartService} from '@app/services/cart.service';
     IonContent,
     IonButtons,
     IonBackButton,
-
   ],
-    template: `
-        <ion-header>
-            <ion-toolbar>
-                <ion-buttons slot="start">
-                    <ion-back-button defaultHref="/cart"></ion-back-button>
-                </ion-buttons>
-                <ion-title>Checkout</ion-title>
-            </ion-toolbar>
-        </ion-header>
+  template: `
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/cart"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Checkout</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-        <ion-content class="ion-padding">
-            <p>TODO: Implement checkout form</p>
+    <ion-content class="ion-padding">
+      <p>TODO: Implement checkout form</p>
 
-            <!-- Hint: Use Angular Reactive Forms (FormGroup is already imported) -->
-            <!-- Hint: ion-input with type="email" for email validation UX -->
-            <!-- Hint: Consider grouping address fields visually -->
-        </ion-content>
-    `,
+      <!-- Hint: Use Angular Reactive Forms (FormGroup is already imported) -->
+      <!-- Hint: ion-input with type="email" for email validation UX -->
+      <!-- Hint: Consider grouping address fields visually -->
+    </ion-content>
+  `,
 })
 export class CheckoutPage {
-    // Example form setup - expand as needed
-    checkoutForm: FormGroup;
+  // Example form setup - expand as needed
+  checkoutForm: FormGroup;
 
-    constructor(
-        private fb: FormBuilder,
-        private apiService: ApiService,
-        private cartService: CartService,
-        private router: Router
-    ) {
-        // TODO: Build the form with proper validators
-        this.checkoutForm = this.fb.group({
-            email: ['', [Validators.required, Validators.email]],
-            name: ['', [Validators.required, Validators.minLength(2)]],
-            // TODO: Add address fields
-        });
-    }
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private cartService: CartService,
+    private router: Router,
+  ) {
+    // TODO: Build the form with proper validators
+    this.checkoutForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      // TODO: Add address fields
+    });
+  }
 
-    onSubmit() {
-        // TODO: Validate, build CheckoutRequest, submit to API
-        // On success: this.router.navigate(['/confirmation'], { state: { order: response } });
-    }
+  onSubmit() {
+    // TODO: Validate, build CheckoutRequest, submit to API
+    // On success: this.router.navigate(['/confirmation'], { state: { order: response } });
+  }
 }

@@ -1,8 +1,15 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar,} from '@ionic/angular/standalone';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 
-import {CartService} from '@app/services/cart.service';
+import { CartService } from '@app/services/cart.service';
 
 /**
  * Cart Page
@@ -18,36 +25,27 @@ import {CartService} from '@app/services/cart.service';
  * - Handle empty cart state
  */
 @Component({
-    selector: 'app-cart',
-    standalone: true,
-    imports: [
-      CommonModule,
-      IonHeader,
-      IonToolbar,
-      IonTitle,
-      IonContent,
-      IonButtons,
-      IonBackButton,
-    ],
-    template: `
-        <ion-header>
-            <ion-toolbar>
-                <ion-buttons slot="start">
-                    <ion-back-button defaultHref="/products"></ion-back-button>
-                </ion-buttons>
-                <ion-title>Cart</ion-title>
-            </ion-toolbar>
-        </ion-header>
+  selector: 'app-cart',
+  standalone: true,
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton],
+  template: `
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/products"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cart</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-        <ion-content class="ion-padding">
-            <p>TODO: Implement cart view</p>
+    <ion-content class="ion-padding">
+      <p>TODO: Implement cart view</p>
 
-            <!-- Hint: Show empty state when cart has no items -->
-            <!-- Hint: Use IonItemSliding for swipe-to-delete -->
-        </ion-content>
-    `,
+      <!-- Hint: Show empty state when cart has no items -->
+      <!-- Hint: Use IonItemSliding for swipe-to-delete -->
+    </ion-content>
+  `,
 })
 export class CartPage {
-    constructor(public cartService: CartService) {
-    }
+  constructor(public cartService: CartService) {}
 }

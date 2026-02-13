@@ -67,6 +67,7 @@ npm run frontend
 ### 3. Checkout Flow
 
 Create a checkout form that collects:
+
 - **Email** (with validation)
 - **Name** (minimum 2 characters)
 - **Address:**
@@ -80,6 +81,7 @@ Submit the order to `POST /api/checkout` with the required payload.
 ### 4. Order Confirmation
 
 After successful checkout, display a confirmation page showing:
+
 - Order ID
 - Customer details
 - Ordered items with quantities and prices
@@ -104,20 +106,24 @@ Full documentation available at `http://localhost:$PORT/api-docs`
 ## Considerations while implementing
 
 ### Code Quality
+
 - Clean, readable, testable, and maintainable code
 - Proper TypeScript usage
 - Consistent code style
 
 ### Architecture
+
 - Logical file/folder organization
 - Separation of concerns
 - Reusable components where appropriate
 
 ### Functionality
+
 - Proper error handling
 - Edge cases considered
 
 ### User Experience
+
 - Intuitive navigation
 - Clear feedback for user actions
 - Mobile-friendly design
