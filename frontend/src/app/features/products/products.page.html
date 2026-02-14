@@ -4,9 +4,7 @@
     <ion-buttons slot="end">
       <ion-button routerLink="/cart">
         <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-        @if (cartService.itemCount() > 0) {
-        <ion-badge color="danger">{{ cartService.itemCount() }}</ion-badge>
-        }
+        <ion-badge color="danger" *ngIf="vm.cartCount() > 0">{{ vm.cartCount() }}</ion-badge>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -14,15 +12,20 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let product of products">
-      <div slot="start" class="custom-svg-container" [innerHTML]="getSafeIcon(product.icon)"></div>
+    <ion-item *ngFor="let product of vm.products()">
+      <div
+        slot="start"
+        class="custom-svg-container"
+        [innerHTML]="vm.getSafeIcon(product.icon)"
+      ></div>
 
       <ion-label>
         <h2>{{ product.name }}</h2>
-        <p>Price: {{ product.price.value }}</p>
+        <p>Price: {{formatPrice(product.price)}}</p>
         <p>Stock: {{ product.numInStock }}</p>
       </ion-label>
-
+      <!--
+      TODO(mlj): Implement quantity controls when quantity implementation is complete
       <div slot="end" class="qty-controls">
         <ion-button fill="clear" (click)="decrement(product)">
           <ion-icon name="remove-circle-outline"></ion-icon>
@@ -32,14 +35,12 @@
           <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
       </div>
+      -->
 
-      <ion-button slot="end" (click)="addToCart(product)">
+      <ion-button slot="end" (click)="vm.addToCart(product)">
         Add to Cart
         <ion-icon slot="end" name="cart-outline"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
-
-  <!-- Hint: Use IonList, IonCard, or IonGrid to display products -->
-  <!-- Hint: HTML can be rendered using [innerHTML] -->
 </ion-content>

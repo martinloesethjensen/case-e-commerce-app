@@ -1,4 +1,4 @@
-import { CartItem } from './cart.model';
+import { CartItem } from '../../../../frontend/src/app/@domain/models/cart-item.model';
 import { Money } from './money.model';
 import { Product } from './product.model';
 

@@ -16,8 +16,8 @@
   }
 }
 ```
-
-5.
+5. Created usecases for managing cart items and getting products
+6. View model for the products page
 
 ## Next steps or considerations:
 
