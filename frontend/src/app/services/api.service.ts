@@ -18,22 +18,6 @@ export class ApiService {
   private http = inject(HttpClient);
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // Categories
-  // ─────────────────────────────────────────────────────────────────────────────
-
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.baseUrl}/categories`);
-  }
-
-  getCategory(id: string): Observable<Category> {
-    return this.http.get<Category>(`${this.baseUrl}/categories/${id}`);
-  }
-
-  getProductsByCategory(categoryId: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/categories/${categoryId}/products`);
-  }
-
-  // ─────────────────────────────────────────────────────────────────────────────
   // Products
   // ─────────────────────────────────────────────────────────────────────────────
 
