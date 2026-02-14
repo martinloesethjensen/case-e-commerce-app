@@ -1,4 +1,12 @@
 import {
+  KEYBOARD_DID_OPEN
+} from "./chunk-4NOLT44N.js";
+import {
+  Keyboard,
+  KeyboardResize,
+  getCapacitor
+} from "./chunk-SHLOGRZ7.js";
+import {
   ION_CONTENT_CLASS_SELECTOR,
   ION_CONTENT_ELEMENT_SELECTOR,
   disableContentScrollY,
@@ -13,11 +21,15 @@ import {
   startFocusVisible
 } from "./chunk-XB4OOBQE.js";
 import {
+  NG_VALUE_ACCESSOR,
+  NgControl
+} from "./chunk-3SYYERU4.js";
+import {
   iosTransitionAnimation
-} from "./chunk-4I2IYROO.js";
+} from "./chunk-QKSBOBQV.js";
 import {
   mdTransitionAnimation
-} from "./chunk-DPTTT3Z4.js";
+} from "./chunk-QMBIKHKY.js";
 import {
   LIFECYCLE_DID_ENTER,
   LIFECYCLE_DID_LEAVE,
@@ -30,7 +42,7 @@ import {
   setPageHidden,
   transition,
   waitForMount
-} from "./chunk-TV7I6TDZ.js";
+} from "./chunk-D5KGFB2L.js";
 import {
   Build,
   Fragment,
@@ -50,7 +62,11 @@ import {
   MENU_BACK_BUTTON_PRIORITY,
   OVERLAY_BACK_BUTTON_PRIORITY,
   shouldUseCloseWatcher
-} from "./chunk-UXTFQ7HO.js";
+} from "./chunk-K76AGQXH.js";
+import {
+  doc,
+  win
+} from "./chunk-CJCTEGKG.js";
 import {
   isRTL
 } from "./chunk-BRLQ3QJA.js";
@@ -88,18 +104,6 @@ import {
   saveConfig
 } from "./chunk-D5QKZW3X.js";
 import {
-  KEYBOARD_DID_OPEN
-} from "./chunk-4NOLT44N.js";
-import {
-  Keyboard,
-  KeyboardResize,
-  getCapacitor
-} from "./chunk-SHLOGRZ7.js";
-import {
-  doc,
-  win
-} from "./chunk-CJCTEGKG.js";
-import {
   ActivatedRoute,
   ChildrenOutletContexts,
   NavigationStart,
@@ -107,26 +111,21 @@ import {
   Router,
   RouterLink,
   UrlSerializer
-} from "./chunk-ST53JHMW.js";
-import "./chunk-VL5ZRHVL.js";
-import "./chunk-SOQUYFL7.js";
-import {
-  NG_VALUE_ACCESSOR,
-  NgControl
-} from "./chunk-D5S7FJMI.js";
+} from "./chunk-XNU7TV5T.js";
+import "./chunk-J4LW4HM3.js";
 import {
   CommonModule,
   Location,
   LocationStrategy,
   NgIf,
   NgTemplateOutlet
-} from "./chunk-5P3MHKDD.js";
+} from "./chunk-JOIQNIV5.js";
+import "./chunk-TUVPEXWH.js";
 import "./chunk-2C5LTXPF.js";
 import {
   APP_INITIALIZER,
   ApplicationRef,
   Attribute,
-  BehaviorSubject,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -147,23 +146,15 @@ import {
   Optional,
   Output,
   SkipSelf,
-  Subject,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
-  __decorate,
-  combineLatest,
   createComponent,
-  distinctUntilChanged,
-  filter,
   forwardRef,
-  fromEvent,
   inject,
   makeEnvironmentProviders,
-  of,
   reflectComponentType,
   setClassMetadata,
-  switchMap,
   ɵɵInheritDefinitionFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
@@ -193,7 +184,18 @@ import {
   ɵɵrestoreView,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-GDHJ3M6I.js";
+} from "./chunk-NFBBBKCP.js";
+import {
+  BehaviorSubject,
+  Subject,
+  __decorate,
+  combineLatest,
+  distinctUntilChanged,
+  filter,
+  fromEvent,
+  of,
+  switchMap
+} from "./chunk-75A436IO.js";
 import {
   __async,
   __objRest,
@@ -9150,16 +9152,16 @@ var App = proxyCustomElement(class App2 extends H {
       rIC(() => __async(this, null, function* () {
         const isHybrid2 = isPlatform(window, "hybrid");
         if (!config.getBoolean("_testing")) {
-          import("./index7-P6HAUJK3.js").then((module) => module.startTapClick(config));
+          import("./index7-5VGNJGNA.js").then((module) => module.startTapClick(config));
         }
         if (config.getBoolean("statusTap", isHybrid2)) {
           import("./status-tap-H6IHC3TG.js").then((module) => module.startStatusTap());
         }
         if (config.getBoolean("inputShims", needInputShims())) {
           const platform = isPlatform(window, "ios") ? "ios" : "android";
-          import("./input-shims-WSZPBPMV.js").then((module) => module.startInputShims(config, platform));
+          import("./input-shims-DYMF7DQS.js").then((module) => module.startInputShims(config, platform));
         }
-        const hardwareBackButtonModule = yield import("./hardware-back-button-FQ3T2DIZ.js");
+        const hardwareBackButtonModule = yield import("./hardware-back-button-RVGOKKPH.js");
         const supportsHardwareBackButtonEvents = isHybrid2 || shouldUseCloseWatcher();
         if (config.getBoolean("hardwareBackButton", supportsHardwareBackButtonEvents)) {
           hardwareBackButtonModule.startHardwareBackButton();

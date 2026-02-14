@@ -1,10 +1,10 @@
 import {
+  win
+} from "./chunk-CJCTEGKG.js";
+import {
   config,
   printIonError
 } from "./chunk-D5QKZW3X.js";
-import {
-  win
-} from "./chunk-CJCTEGKG.js";
 import {
   __async
 } from "./chunk-QHQP2P2Z.js";
@@ -96,4 +96,4 @@ export {
    * (C) Ionic http://ionicframework.com - MIT License
    *)
 */
-//# sourceMappingURL=chunk-UXTFQ7HO.js.map
+//# sourceMappingURL=chunk-K76AGQXH.js.map

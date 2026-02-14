@@ -1,16 +1,16 @@
 import { inject, Injectable } from '@angular/core';
 import { Product } from '@common/shared-models';
 import { catchError, Observable, of } from 'rxjs';
-import { ApiService } from '../../services/api.service';
+import { ProductsRepository } from '../repositories/products.repository';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetProductsUseCase {
-  private api = inject(ApiService);
+  private repository = inject(ProductsRepository);
 
   execute(): Observable<Product[]> {
-    return this.api.getProducts().pipe(
+    return this.repository.getProducts().pipe(
       catchError((error) => {
         console.error('Error fetching products:', error);
         // TODO: Throw an error so the UI can handle it.

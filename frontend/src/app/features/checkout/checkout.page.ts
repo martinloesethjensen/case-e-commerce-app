@@ -12,7 +12,7 @@ import {
 } from '@ionic/angular/standalone';
 
 import { ApiService } from '../../services/api.service';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../data/services/cart.service';
 
 /**
  * Checkout Page

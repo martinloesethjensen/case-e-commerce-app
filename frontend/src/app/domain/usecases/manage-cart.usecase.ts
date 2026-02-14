@@ -1,6 +1,6 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { Product } from '@common/shared-models';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../data/services/cart.service';
 import { CartItem } from '../models/cart-item.model';
 
 @Injectable({

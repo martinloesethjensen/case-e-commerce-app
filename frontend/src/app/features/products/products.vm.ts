@@ -1,8 +1,8 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Product } from '@common/shared-models';
-import { GetProductsUseCase } from '../../@domain/usecases/get-products.usecase';
-import { ManageCartUseCase } from '../../@domain/usecases/manage-cart.usecase';
+import { GetProductsUseCase } from '../../domain/usecases/get-products.usecase';
+import { ManageCartUseCase } from '../../domain/usecases/manage-cart.usecase';
 
 @Injectable()
 export class ProductsViewModel {

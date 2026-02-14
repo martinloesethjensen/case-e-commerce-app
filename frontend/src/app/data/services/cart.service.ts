@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 
 import { MoneyUtils } from '@common/utils';
-import { CartItem } from '../@domain/models/cart-item.model';
+import { CartItem } from '../../domain/models/cart-item.model';
 
 /**
  * Cart Service - manages shopping cart state.

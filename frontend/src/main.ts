@@ -7,11 +7,14 @@ import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { CategoriesRepository } from './app/domain/repositories/categories.repository';
 import { CategoriesRepositoryImpl } from './app/data/repositories/categories.repository.impl';
+import { ProductsRepository } from './app/domain/repositories/products.repository';
+import { ProductsRepositoryImpl } from './app/data/repositories/products.repository.impl';
 
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: CategoriesRepository, useClass: CategoriesRepositoryImpl },
+    { provide: ProductsRepository, useClass: ProductsRepositoryImpl },
     provideIonicAngular(),
     provideRouter(routes),
     provideHttpClient(),

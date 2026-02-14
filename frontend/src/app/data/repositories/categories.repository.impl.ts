@@ -15,6 +15,7 @@ export class CategoriesRepositoryImpl implements CategoriesRepository {
     const local$ = of(localData);
     const remote$ = this.api.getAll().pipe(
       tap((categories) => this.local.saveCategories(categories)),
+      // TODO: handle error propagation
       catchError(() => EMPTY),
     );
     return concat(local$, remote$);
@@ -23,11 +24,13 @@ export class CategoriesRepositoryImpl implements CategoriesRepository {
   getCategory(id: string): Observable<Category> {
     const localData = this.local.get(id);
     const local$ = !localData ? EMPTY : of(localData);
+    // TODO: handle error propagation
     const remote$ = this.api.get(id).pipe(catchError(() => EMPTY));
     return concat(local$, remote$);
   }
 
   getProductsByCategory(categoryId: string): Observable<Product[]> {
+    // TODO: handle error propagation
     return this.api.getProductsByCategory(categoryId).pipe(catchError(() => EMPTY));
   }
 }
