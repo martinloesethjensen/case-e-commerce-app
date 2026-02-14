@@ -18,6 +18,7 @@
 ```
 5. Created usecases for managing cart items and getting products
 6. View model for the products page
+7. Repository pattern and offline first approach with api and local sources
 
 ## Next steps or considerations:
 
