@@ -1,4 +1,4 @@
-import { Money } from './money.model';
+import { Money } from '@common/shared-models';
 
 export interface CartItem {
   productId: string;

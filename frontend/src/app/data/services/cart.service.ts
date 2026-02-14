@@ -1,6 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { CartItem, Product } from '@common/shared-models';
+
 import { MoneyUtils } from '@common/utils';
+import { CartItem } from '../@domain/models/cart-item.model';
 
 /**
  * Cart Service - manages shopping cart state.
@@ -42,16 +43,20 @@ export class CartService {
     this.cartItems.update((items) => [...items, item]);
   }
 
-  removeFromCart(item: CartItem) {
-    this.cartItems.update((items) => items.filter((i) => i.productId !== item.productId));
+  removeFromCart(productId: string) {
+    this.cartItems.update((items) => items.filter((i) => i.productId !== productId));
   }
 
-  updateQuantity(item: CartItem, quantity: number) {
+  clearCart() {
+    this.cartItems.update(() => []);
+  }
+
+  updateQuantity(productId: string, quantity: number) {
     if (quantity <= 0) {
-      return this.removeFromCart(item);
+      return this.removeFromCart(productId);
     }
     this.cartItems.update((items) =>
-      items.map((i) => (i.productId === item.productId ? { ...i, quantity } : i)),
+      items.map((i) => (i.productId === productId ? { ...i, quantity } : i)),
     );
   }
 }

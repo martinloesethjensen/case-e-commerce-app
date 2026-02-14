@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, LOCALE_ID, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IonBadge,
@@ -7,23 +7,19 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonImg,
   IonItem,
   IonLabel,
   IonList,
-  IonThumbnail,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { addCircleOutline, cartOutline, pricetag, removeCircleOutline } from 'ionicons/icons';
+import { addCircleOutline, cartOutline, removeCircleOutline } from 'ionicons/icons';
 
-import { ApiService } from '../../services/api.service';
-import { CartService } from '../../services/cart.service';
-import { products } from '../../../../../backend/src/data/seed';
-import { CartItem, Category, Product } from '@common/shared-models';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ProductsViewModel } from './products.vm';
+import { Money, Product } from '@common/shared-models';
+import { MoneyUtils } from '@common/utils';
 
 /**
  * Products Page
@@ -31,12 +27,12 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
  * TODO: Implement the product listing page.
  *
  * - Display and organize products how you see fit
- * - Allow adding products to cart
  * - Show cart icon with item count in header
  */
 @Component({
   selector: 'app-products',
   standalone: true,
+  providers: [ProductsViewModel],
   imports: [
     CommonModule,
     RouterLink,
@@ -55,45 +51,26 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   templateUrl: './products.page.html',
 })
 export class ProductsPage implements OnInit {
+  public vm = inject(ProductsViewModel);
+  private locale = inject(LOCALE_ID);
+
   constructor() {
     addIcons({ cartOutline, addCircleOutline, removeCircleOutline });
   }
 
-  public cartService = inject(CartService);
-  private apiService = inject(ApiService);
-  private sanitizer = inject(DomSanitizer);
-
-  products: Product[] = [];
-  private categories: Category[] = [];
-
-  getSafeIcon(svgString: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(svgString);
+  ngOnInit() {
+    this.vm.loadProducts();
   }
 
-  private toCartItem(product: Product, quantity: number): CartItem {
-    return { quantity, price: product.price, productId: product.id };
+  formatPrice(money: Money): string {
+    return MoneyUtils.toPrice(money, this.locale);
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(this.toCartItem(product, 1));
+    this.vm.addToCart(product);
   }
 
-  decrement(product: Product) {
-    const cartItem = this.toCartItem(product, 1);
-    this.cartService.updateQuantity(cartItem, cartItem.quantity--);
-  }
-
-  increment(product: Product) {
-    const cartItem = this.toCartItem(product, 1);
-    this.cartService.updateQuantity(cartItem, cartItem.quantity++);
-  }
-
-  ngOnInit() {
-    this.apiService.getProducts().subscribe((products) => {
-      this.products = [...products, ...products, ...products];
-    });
-    this.apiService.getCategories().subscribe((categories) => {
-      this.categories = categories;
-    });
+  removeFromCart(productId: string) {
+    this.vm.removeFromCart(productId);
   }
 }

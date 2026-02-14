@@ -1,5 +1,4 @@
 import { Currency, Money } from '@common/shared-models';
-import { LOCALE_ID, inject } from '@angular/core';
 
 export const MoneyUtils = {
   zero(currency: Currency): Money {
@@ -9,10 +8,8 @@ export const MoneyUtils = {
     };
   },
 
-  toPrice(money: Money): string {
+  toPrice(money: Money, locale: string): string {
     const amount = money.value / Math.pow(10, money.currency.decimals);
-
-    const locale = inject(LOCALE_ID);
 
     return new Intl.NumberFormat(locale, {
       style: 'currency',
