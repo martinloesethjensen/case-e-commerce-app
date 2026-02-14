@@ -54,6 +54,4 @@ export class CartService {
       items.map((i) => (i.productId === item.productId ? { ...i, quantity } : i)),
     );
   }
-
-  // TODO: Implement cart methods
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IonBadge,
@@ -7,15 +7,23 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonImg,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonThumbnail,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { cartOutline } from 'ionicons/icons';
+import { addCircleOutline, cartOutline, pricetag, removeCircleOutline } from 'ionicons/icons';
 
-import { ApiService } from '@app/services/api.service';
-import { CartService } from '@app/services/cart.service';
+import { ApiService } from '../../services/api.service';
+import { CartService } from '../../services/cart.service';
+import { products } from '../../../../../backend/src/data/seed';
+import { CartItem, Category, Product } from '@common/shared-models';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * Products Page
@@ -40,39 +48,52 @@ import { CartService } from '@app/services/cart.service';
     IonButton,
     IonIcon,
     IonBadge,
+    IonList,
+    IonItem,
+    IonLabel,
   ],
-  template: `
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Products</ion-title>
-        <ion-buttons slot="end">
-          <ion-button routerLink="/cart">
-            <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-            @if (cartService.itemCount() > 0) {
-              <ion-badge color="danger">{{ cartService.itemCount() }}</ion-badge>
-            }
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="ion-padding">
-      <p>TODO: Implement product listing</p>
-
-      <!-- Hint: Use IonList, IonCard, or IonGrid to display products -->
-      <!-- Hint: HTML can be rendered using [innerHTML] -->
-    </ion-content>
-  `,
+  templateUrl: './products.page.html',
 })
 export class ProductsPage implements OnInit {
-  constructor(
-    private apiService: ApiService,
-    public cartService: CartService,
-  ) {
-    addIcons({ cartOutline });
+  constructor() {
+    addIcons({ cartOutline, addCircleOutline, removeCircleOutline });
+  }
+
+  public cartService = inject(CartService);
+  private apiService = inject(ApiService);
+  private sanitizer = inject(DomSanitizer);
+
+  products: Product[] = [];
+  private categories: Category[] = [];
+
+  getSafeIcon(svgString: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(svgString);
+  }
+
+  private toCartItem(product: Product, quantity: number): CartItem {
+    return { quantity, price: product.price, productId: product.id };
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(this.toCartItem(product, 1));
+  }
+
+  decrement(product: Product) {
+    const cartItem = this.toCartItem(product, 1);
+    this.cartService.updateQuantity(cartItem, cartItem.quantity--);
+  }
+
+  increment(product: Product) {
+    const cartItem = this.toCartItem(product, 1);
+    this.cartService.updateQuantity(cartItem, cartItem.quantity++);
   }
 
   ngOnInit() {
-    // TODO: Load products and categories from API
+    this.apiService.getProducts().subscribe((products) => {
+      this.products = [...products, ...products, ...products];
+    });
+    this.apiService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
   }
 }
