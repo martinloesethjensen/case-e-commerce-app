@@ -74,7 +74,7 @@ export const products: Product[] = [
     icon: icons.headphones,
     price: {
       value: 50394, // 503,94 kr
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 2,
     categoryId: 'cat-electronics',
@@ -85,7 +85,7 @@ export const products: Product[] = [
     icon: icons.smartphone,
     price: {
       value: 566370, // 5.663,70 kr
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 8,
     categoryId: 'cat-electronics',
@@ -96,7 +96,7 @@ export const products: Product[] = [
     icon: icons.laptop,
     price: {
       value: 818370, // 8.183,70 kr
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 5,
     categoryId: 'cat-electronics',
@@ -109,7 +109,7 @@ export const products: Product[] = [
     icon: icons.tshirt,
     price: {
       value: 15744, // 157,44 kr
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 50,
     categoryId: 'cat-clothing',
@@ -120,7 +120,7 @@ export const products: Product[] = [
     icon: icons.pants,
     price: {
       value: 37794, // 377,94 kr
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 25,
     categoryId: 'cat-clothing',
@@ -131,7 +131,7 @@ export const products: Product[] = [
     icon: icons.shoes,
     price: {
       value: 75594, // 755,94 kr,
-      currency: currency.DKK,
+      currency: currency['DKK'],
     },
     numInStock: 12,
     categoryId: 'cat-clothing',

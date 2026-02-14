@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category, CheckoutRequest, OrderResponse, Product } from '@common/shared-models';
@@ -13,9 +13,9 @@ import { Category, CheckoutRequest, OrderResponse, Product } from '@common/share
   providedIn: 'root',
 })
 export class ApiService {
-  private readonly baseUrl = 'http://localhost:3000/api';
+  private readonly baseUrl = 'http://localhost:4000/api';
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   // ─────────────────────────────────────────────────────────────────────────────
   // Categories

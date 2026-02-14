@@ -11,8 +11,8 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 
-import { ApiService } from '@app/services/api.service';
-import { CartService } from '@app/services/cart.service';
+import { ApiService } from '../../services/api.service';
+import { CartService } from '../../services/cart.service';
 
 /**
  * Checkout Page

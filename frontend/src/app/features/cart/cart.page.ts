@@ -8,8 +8,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-
-import { CartService } from '@app/services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 /**
  * Cart Page
