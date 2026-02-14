@@ -5,11 +5,9 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonIcon,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { CartService } from '../../data/services/cart.service';
 import { CartViewModel } from './cart.vm';
 
 /**
