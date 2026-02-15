@@ -10,6 +10,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonText,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
@@ -47,6 +48,7 @@ import { MoneyUtils } from '@common/utils';
     IonList,
     IonItem,
     IonLabel,
+    IonText,
   ],
   templateUrl: './products.page.html',
 })
@@ -64,6 +66,10 @@ export class ProductsPage implements OnInit {
 
   formatPrice(money: Money): string {
     return MoneyUtils.toPrice(money, this.locale);
+  }
+
+  stock(product: Product): number {
+    return product.numInStock - this.vm.itemCountOf(product.id)();
   }
 
   addToCart(product: Product) {

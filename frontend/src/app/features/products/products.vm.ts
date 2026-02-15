@@ -15,6 +15,10 @@ export class ProductsViewModel {
 
   public cartCount = computed(() => this.manageCartUsecase.cartCount());
 
+  public itemCountOf(productId: string) {
+    return this.manageCartUsecase.itemCountOf(productId);
+  }
+
   loadProducts() {
     this.getProductsUsecase.execute().subscribe((products) => this._products.set(products));
   }
