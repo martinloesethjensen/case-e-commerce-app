@@ -2,9 +2,11 @@
   <ion-toolbar>
     <ion-title>Products</ion-title>
     <ion-buttons slot="end">
+      <ion-badge color="danger" *ngIf="vm.cartCount() > 0"
+        >Cart items: {{ vm.cartCount() }}</ion-badge
+      >
       <ion-button routerLink="/cart">
         <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-        <ion-badge color="danger" *ngIf="vm.cartCount() > 0">{{ vm.cartCount() }}</ion-badge>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -21,23 +23,28 @@
 
       <ion-label>
         <h2>{{ product.name }}</h2>
-        <p>Price: {{formatPrice(product.price)}}</p>
-        <p>Stock: {{ product.numInStock }}</p>
+        <p>Price: {{ formatPrice(product.price) }}</p>
+        <p>Stock: {{ stock(product) }}</p>
       </ion-label>
-      <!--
-      TODO(mlj): Implement quantity controls when quantity implementation is complete
-      <div slot="end" class="qty-controls">
-        <ion-button fill="clear" (click)="decrement(product)">
+
+      <div *ngIf="vm.itemCountOf(product.id)() > 0" class="qty-controls">
+        <ion-button fill="clear" size="medium" (click)="vm.removeFromCart(product.id)">
           <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-button>
 
-        <ion-button fill="clear" [disabled]="product.numInStock <= 0" (click)="increment(product)">
+        <ion-text> {{ vm.itemCountOf(product.id)() }} </ion-text>
+
+        <ion-button
+          fill="clear"
+          size="medium"
+          [disabled]="stock(product) <= 0"
+          (click)="vm.addToCart(product)"
+        >
           <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
       </div>
-      -->
 
-      <ion-button slot="end" (click)="vm.addToCart(product)">
+      <ion-button slot="end" [disabled]="stock(product) <= 0" (click)="vm.addToCart(product)">
         Add to Cart
         <ion-icon slot="end" name="cart-outline"></ion-icon>
       </ion-button>

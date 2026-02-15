@@ -11,20 +11,25 @@ export class ManageCartUseCase {
 
   public cartCount = computed(() => this.cartService.itemCount());
 
+  itemCountOf(productId: string) {
+    return this.cartService.countOf(productId);
+  }
+
   private toCartItem(product: Product, quantity: number): CartItem {
     return { quantity, price: product.price, productId: product.id };
   }
 
   addItemToCart(product: Product): void {
-    this.cartService.addToCart(this.toCartItem(product, 1));
+    const currentItemCount = this.cartService.countOf(product.id);
+    if (currentItemCount() >= product.numInStock) {
+      // TODO: handle gracefully and tell UI to disable "Add to cart" button
+      return;
+    }
+    this.cartService.addToCart(this.toCartItem(product, currentItemCount() + 1));
   }
 
   removeItemFromCart(productId: string): void {
     this.cartService.removeFromCart(productId);
-  }
-
-  updateCartItemQuantity(productId: string, quantity: number): void {
-    this.cartService.updateQuantity(productId, quantity);
   }
 
   clearCart(): void {
