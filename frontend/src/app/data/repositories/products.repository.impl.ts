@@ -18,7 +18,6 @@ export class ProductsRepositoryImpl implements ProductsRepository {
       // TODO: handle error propagation
       catchError(() => EMPTY),
     );
-    console.log('remote$:', remote$);
     return concat(local$, remote$);
   }
 
