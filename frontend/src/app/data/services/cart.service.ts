@@ -80,6 +80,6 @@ export class CartService {
   }
 
   clearCart() {
-    this.cartItems.update(() => new Map());
+    this.cartItems.set(new Map());
   }
 }
