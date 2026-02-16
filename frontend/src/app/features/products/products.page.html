@@ -28,7 +28,12 @@
       </ion-label>
 
       <div *ngIf="vm.itemCountOf(product.id)() > 0" class="qty-controls">
-        <ion-button fill="clear" size="medium" (click)="vm.removeFromCart(product.id)">
+        <ion-button
+          fill="clear"
+          size="medium"
+          color="{{ vm.itemCountOf(product.id)() === 1 ? 'danger' : 'primary' }}"
+          (click)="vm.removeFromCart(product.id)"
+        >
           <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-button>
 
