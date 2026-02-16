@@ -14,7 +14,8 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let product of vm.products()">
+    @for (product of vm.products(); track product.id) {
+    <ion-item>
       <div
         slot="start"
         class="custom-svg-container"
@@ -54,5 +55,8 @@
         <ion-icon slot="end" name="cart-outline"></ion-icon>
       </ion-button>
     </ion-item>
+    } @empty {
+    <ion-label> No products available. </ion-label>
+    }
   </ion-list>
 </ion-content>
