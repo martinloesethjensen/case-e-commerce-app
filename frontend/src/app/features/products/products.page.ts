@@ -51,6 +51,7 @@ import { MoneyUtils } from '@common/utils';
     IonText,
   ],
   templateUrl: './products.page.html',
+  styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
   public vm = inject(ProductsViewModel);
