@@ -34,6 +34,4 @@ export class ProductsViewModel {
   removeFromCart(productId: string) {
     this.manageCartUsecase.removeItemFromCart(productId);
   }
-
-  // TODO(mlj): implement quantity like increment & decrement
 }
