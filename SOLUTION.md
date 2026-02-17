@@ -47,6 +47,7 @@
 - Offline first approach with api and local sources.
 - Use of Nx to manage the project structure and dependencies and utilize clean architecture through tooling.
 - CI/CD pipeline for automated testing and deployment.
+- Branching strategy > dev | staging | production
 - Caching strategies for performance optimization.
 - Command pattern for handling user actions.
 - Extensibility: Using interfaces lets us swap implementations without affecting the rest of the application.
