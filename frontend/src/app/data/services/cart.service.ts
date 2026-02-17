@@ -51,17 +51,7 @@ export class CartService {
   }
 
   addToCart(item: CartItem) {
-    this.cartItems.update((items) => {
-      const existingItem = items.get(item.productId);
-      if (existingItem) {
-        return new Map(items).set(item.productId, {
-          ...existingItem,
-          quantity: existingItem.quantity + 1,
-        });
-      } else {
-        return new Map(items).set(item.productId, item);
-      }
-    });
+    this.cartItems.update((items) => new Map(items).set(item.productId, item));
   }
 
   removeFromCart(productId: string) {
