@@ -46,12 +46,22 @@ export class CartService {
     return total;
   });
 
+  readonly items = computed(() => [...this.cartItems().values()]);
+
   countOf(productId: string) {
     return computed(() => this.cartItems().get(productId)?.quantity ?? 0);
   }
 
   addToCart(item: CartItem) {
     this.cartItems.update((items) => new Map(items).set(item.productId, item));
+  }
+
+  removeAllFromCart(productId: string) {
+    this.cartItems.update((items) => {
+      const newMap = new Map(items);
+      newMap.delete(productId);
+      return newMap;
+    });
   }
 
   removeFromCart(productId: string) {

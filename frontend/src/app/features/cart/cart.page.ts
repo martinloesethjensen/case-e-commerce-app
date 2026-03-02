@@ -2,34 +2,67 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonItem,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
+  IonLabel,
+  IonList,
+  IonText,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { RouterLink } from '@angular/router';
+import { addIcons } from 'ionicons';
+import {
+  addCircleOutline,
+  arrowForwardOutline,
+  cartOutline,
+  removeCircleOutline,
+  trashOutline,
+} from 'ionicons/icons';
 import { CartViewModel } from './cart.vm';
 
-/**
- * Cart Page
- *
- * TODO: Implement the shopping cart page.
- *
- * Requirements:
- * - Display cart items with product info and quantity
- * - Allow adjusting quantity (respecting stock limits)
- * - Allow removing items
- * - Show line totals and cart total
- * - Checkout button (navigates to /checkout)
- * - Handle empty cart state
- */
 @Component({
   selector: 'app-cart',
   standalone: true,
   providers: [CartViewModel],
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton],
+  imports: [
+    CommonModule,
+    RouterLink,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButtons,
+    IonBackButton,
+    IonButton,
+    IonIcon,
+    IonList,
+    IonItem,
+    IonItemSliding,
+    IonItemOptions,
+    IonItemOption,
+    IonLabel,
+    IonText,
+  ],
   templateUrl: './cart.page.html',
 })
 export class CartPage {
   public vm = inject(CartViewModel);
+
+  constructor() {
+    addIcons({
+      cartOutline,
+      addCircleOutline,
+      removeCircleOutline,
+      trashOutline,
+      arrowForwardOutline,
+    });
+  }
 }

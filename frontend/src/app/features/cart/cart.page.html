@@ -4,16 +4,71 @@
       <ion-back-button defaultHref="/products"></ion-back-button>
     </ion-buttons>
     <ion-title>Cart</ion-title>
+    @if (!vm.isEmpty()) {
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="vm.clearCart()">Clear</ion-button>
+    </ion-buttons>
+    }
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  @if(vm.isEmpty()) {
-  <div>
+  @if (vm.isEmpty()) {
+  <div class="empty-cart">
+    <ion-icon name="cart-outline" size="large"></ion-icon>
     <h2>Your cart is empty</h2>
     <p>Add items to your cart to start shopping.</p>
+    <ion-button routerLink="/products">Browse Products</ion-button>
+  </div>
+  } @else {
+  <ion-list>
+    @for (item of vm.items(); track item.productId) {
+    <ion-item-sliding>
+      <ion-item>
+        <div slot="start" [innerHTML]="vm.getSafeIcon(item.icon)" class="item-icon"></div>
+        <ion-label>
+          <h2>{{ item.name }}</h2>
+          <p>{{ vm.formatPrice(item) }} each &middot; {{ vm.lineTotal(item) }} total</p>
+        </ion-label>
+        <div class="qty-controls" slot="end">
+          <ion-button
+            fill="clear"
+            size="small"
+            [color]="item.quantity === 1 ? 'danger' : 'primary'"
+            (click)="vm.decrease(item)"
+          >
+            <ion-icon
+              [name]="item.quantity === 1 ? 'trash-outline' : 'remove-circle-outline'"
+            ></ion-icon>
+          </ion-button>
+          <ion-text>{{ item.quantity }}</ion-text>
+          <ion-button
+            fill="clear"
+            size="small"
+            [disabled]="item.quantity >= item.numInStock"
+            (click)="vm.increase(item)"
+          >
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="vm.removeItem(item.productId)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    }
+  </ion-list>
+
+  <div class="cart-footer">
+    <ion-text>
+      <h3>Total: {{ vm.totalPrice() }}</h3>
+    </ion-text>
+    <ion-button expand="block" routerLink="/checkout">
+      Checkout
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
   </div>
   }
-
-  <!-- Hint: Use IonItemSliding for swipe-to-delete -->
 </ion-content>

@@ -11,12 +11,21 @@ export class ManageCartUseCase {
 
   public cartCount = computed(() => this.cartService.itemCount());
 
+  public readonly cartItems = this.cartService.items;
+
   itemCountOf(productId: string) {
     return this.cartService.countOf(productId);
   }
 
   private toCartItem(product: Product, quantity: number): CartItem {
-    return { quantity, price: product.price, productId: product.id };
+    return {
+      quantity,
+      price: product.price,
+      productId: product.id,
+      name: product.name,
+      icon: product.icon,
+      numInStock: product.numInStock,
+    };
   }
 
   addItemToCart(product: Product): void {
@@ -28,8 +37,17 @@ export class ManageCartUseCase {
     this.cartService.addToCart(this.toCartItem(product, currentItemCount() + 1));
   }
 
+  increaseCartItem(item: CartItem): void {
+    if (item.quantity >= item.numInStock) return;
+    this.cartService.addToCart({ ...item, quantity: item.quantity + 1 });
+  }
+
   removeItemFromCart(productId: string): void {
     this.cartService.removeFromCart(productId);
+  }
+
+  removeItemCompletely(productId: string): void {
+    this.cartService.removeAllFromCart(productId);
   }
 
   clearCart(): void {
