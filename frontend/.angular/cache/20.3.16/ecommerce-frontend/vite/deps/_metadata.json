@@ -1,73 +1,73 @@
 {
-  "hash": "fda8cd23",
+  "hash": "0054999b",
   "configHash": "7f536dee",
-  "lockfileHash": "b28eeee1",
-  "browserHash": "1c11c77a",
+  "lockfileHash": "1aa33c61",
+  "browserHash": "b5fb85d3",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "bc33f387",
+      "fileHash": "ab713cb8",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "36fc413f",
+      "fileHash": "f8287545",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "3e5d6dd9",
+      "fileHash": "47dd9785",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "37bc17a2",
+      "fileHash": "2a154fa8",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "62acfe06",
+      "fileHash": "f8946166",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "e68fa85a",
+      "fileHash": "089726e7",
       "needsInterop": false
     },
     "@ionic/angular/standalone": {
       "src": "../../../../../../../node_modules/@ionic/angular/fesm2022/ionic-angular-standalone.mjs",
       "file": "@ionic_angular_standalone.js",
-      "fileHash": "2063a76d",
+      "fileHash": "a989230a",
       "needsInterop": false
     },
     "ionicons": {
       "src": "../../../../../../../node_modules/ionicons/dist/index.js",
       "file": "ionicons.js",
-      "fileHash": "89f6ee41",
+      "fileHash": "0450a8b4",
       "needsInterop": false
     },
     "ionicons/icons": {
       "src": "../../../../../../../node_modules/ionicons/icons/index.mjs",
       "file": "ionicons_icons.js",
-      "fileHash": "f10b7cc9",
+      "fileHash": "edf98c99",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "ca7420ea",
+      "fileHash": "3ca9b1a0",
       "needsInterop": false
     },
     "zone.js": {
       "src": "../../../../../../../node_modules/zone.js/fesm2015/zone.js",
       "file": "zone__js.js",
-      "fileHash": "cb4eb3fc",
+      "fileHash": "3bc66437",
       "needsInterop": true
     }
   },
@@ -114,9 +114,6 @@
     "chunk-XB4OOBQE": {
       "file": "chunk-XB4OOBQE.js"
     },
-    "chunk-3SYYERU4": {
-      "file": "chunk-3SYYERU4.js"
-    },
     "chunk-QKSBOBQV": {
       "file": "chunk-QKSBOBQV.js"
     },
@@ -146,6 +143,9 @@
     },
     "chunk-D5QKZW3X": {
       "file": "chunk-D5QKZW3X.js"
+    },
+    "chunk-3SYYERU4": {
+      "file": "chunk-3SYYERU4.js"
     },
     "chunk-XNU7TV5T": {
       "file": "chunk-XNU7TV5T.js"

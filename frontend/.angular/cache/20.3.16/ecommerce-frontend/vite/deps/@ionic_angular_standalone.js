@@ -21,10 +21,6 @@ import {
   startFocusVisible
 } from "./chunk-XB4OOBQE.js";
 import {
-  NG_VALUE_ACCESSOR,
-  NgControl
-} from "./chunk-3SYYERU4.js";
-import {
   iosTransitionAnimation
 } from "./chunk-QKSBOBQV.js";
 import {
@@ -103,6 +99,10 @@ import {
   printIonWarning,
   saveConfig
 } from "./chunk-D5QKZW3X.js";
+import {
+  NG_VALUE_ACCESSOR,
+  NgControl
+} from "./chunk-3SYYERU4.js";
 import {
   ActivatedRoute,
   ChildrenOutletContexts,
