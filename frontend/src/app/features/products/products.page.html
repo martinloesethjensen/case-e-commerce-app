@@ -14,7 +14,12 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    @for (product of vm.products(); track product.id) {
+    @for (group of vm.productGroups(); track group.category.id) {
+    <ion-list-header>
+      <ion-label>{{ group.category.name }}</ion-label>
+    </ion-list-header>
+
+    @for (product of group.products; track product.id) {
     <ion-item>
       <div
         slot="start"
@@ -55,8 +60,8 @@
         <ion-icon slot="end" name="cart-outline"></ion-icon>
       </ion-button>
     </ion-item>
-    } @empty {
-    <ion-label> No products available. </ion-label>
+    } } @empty {
+    <ion-label>No products available.</ion-label>
     }
   </ion-list>
 </ion-content>
